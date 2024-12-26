@@ -2,13 +2,19 @@ import os
 import logging
 import web.login_ulits as login_ulits
 import web.conf as conf
-from flask import render_template, jsonify
+import time
+from urllib.parse import urlparse
+from flask import Flask, render_template, request, jsonify, redirect, url_for
+
+from recommendModel.getData import get_history_data, get_hot_data, get_recommand_data
+
 
 logging.basicConfig(level = logging.INFO,format = '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 conf = conf.conf()
 cookie_file_path = conf.cookie_file_path
+
 
 
 def dashboard():
@@ -23,7 +29,7 @@ def dashboard():
         temp = []
         count = 0
         for xx in x["tag"]:
-            if len(xx) <= 8 and count < 2:  # 标签长度不超过 8 且最多取 2 个标签
+            if len(xx) <= 8 and count < 2:
                 temp.append(xx)
                 count += 1
         x["tag"] = temp

@@ -19,17 +19,17 @@ def mainPage():
     app.add_url_rule("/qrcode_status", "qrcode_status", qrcode_status, methods=["GET"])
     app.add_url_rule("/dashboard", "dashboard", dashboard)
     app.add_url_rule("/logout", "logout", logout, methods=["POST"])
-    app.add_url_rule(
-        "/api/recommend-hot-vid",
-        "recommend-hot-vid",
-        recommend_hot_vid,
-        methods=["GET"],
-    )
-    app.add_url_rule(
-        "/api/recommend-explore-vid",
-        "recommend-explore-vid",
-        recommend_explore_vid,
-        methods=["GET"],
-    )
+    # app.add_url_rule(
+    #     "/api/recommend-hot-vid",
+    #     "recommend-hot-vid",
+    #     recommend_hot_vid,
+    #     methods=["GET"],
+    # )
+    # app.add_url_rule(
+    #     "/api/recommend-explore-vid",
+    #     "recommend-explore-vid",
+    #     recommend_explore_vid,
+    #     methods=["GET"],
+    # )
 
     return app
